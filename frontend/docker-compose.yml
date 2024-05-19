@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  uniread-frontend:
+    image: node:alpine
+    container_name: uniread-frontend
+    ports:
+      - "8080:8080"
+    working_dir: /app/frontend
+    volumes:
+      - type: bind
+        source: ./
+        target: /app/frontend
+    command: ["npm", "run", "preview"]

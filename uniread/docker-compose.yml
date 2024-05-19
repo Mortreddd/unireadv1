@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/uniread?createDatabaseIfNotExists=true
+      - SPRING_DATASOURCE_USERNAME=emmanuel
+      - SPRING_DATASOURCE_PASSWORD=12345678
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.34
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: uniread
+      MYSQL_USER: emmanuel
+      MYSQL_PASSWORD: 12345678
+    ports:
+      - "3307:3306"
