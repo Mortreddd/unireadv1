@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import DropdownItem from "./DropdownItem";
 
+interface DropdownProps {
+  text?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
 export default function Dropdown({
   text,
   className = "dropdown-end",
   children,
-}: {
-  text?: string;
-  className?: string;
-  children: React.ReactNode;
-}) {
+}: DropdownProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <React.Fragment>

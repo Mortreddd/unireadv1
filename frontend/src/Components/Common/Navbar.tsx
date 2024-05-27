@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./UI/Dropdown";
-import DropdownItem from "./UI/DropdownItem";
+import Dropdown from "./Dropdown";
+import DropdownItem from "./DropdownItem";
+import { Button } from "./Button";
+import { useAuth } from "@/Context/AuthContext";
 
 export default function Navbar() {
+  const { isAuthenticated } = useAuth();
   return (
     <React.Fragment>
       <div className="navbar bg-white">
@@ -11,28 +14,34 @@ export default function Navbar() {
           <Link to="/" className="btn btn-ghost text-2xl">
             UniRead
           </Link>
+
+          <Button type="button" variant={"secondary"} size={"default"}>
+            <Link to="/">Home</Link>
+          </Button>
         </div>
+
         <div className="flex-none gap-2">
-          {/* Navbar books dropdown */}
-          <Dropdown text="Books">
-            <DropdownItem>
-              <Link to="/">Item 1</Link>
-            </DropdownItem>
-            <DropdownItem>
-              <Link to="/">Item 2</Link>
-            </DropdownItem>
-          </Dropdown>
+          {isAuthenticated && (
+            <div>
+              <Dropdown text="Books">
+                <DropdownItem>
+                  <Link to="/">Item 1</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/">Item 2</Link>
+                </DropdownItem>
+              </Dropdown>
 
-          {/* Navbar write dropdown */}
-          <Dropdown text="Write">
-            <DropdownItem>
-              <Link to="/">Item 1</Link>
-            </DropdownItem>
-            <DropdownItem>
-              <Link to="/">Item 2</Link>
-            </DropdownItem>
-          </Dropdown>
-
+              <Dropdown text="Write">
+                <DropdownItem>
+                  <Link to="/">Item 1</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/">Item 2</Link>
+                </DropdownItem>
+              </Dropdown>
+            </div>
+          )}
           {/* Navbar library dropdown */}
           <Link
             to="/library"
