@@ -8,10 +8,10 @@ const BookCoverVariant = cva("rounded-lg object-cover", {
       jumbotron: "h-72 md:h-96 w-40 md:w-52 object-cover",
     },
     size: {
-      default: "h-72 md:h-96 w-40 md:w-52 object-cover",
-      sm: "h-52 md:h-72 w-32 md:w-40 object-cover",
-      md: "h-72 md:h-96 w-40 md:w-52 object-cover",
-      lg: "h-96 md:h-72 w-52 md:w-64 object-cover",
+      default: "h-64 md:h-80 w-40 md:w-52 object-cover border-primary border-2",
+      sm: "h-44 md:h-60 w-32 md:w-40 object-cover border-primary border-2",
+      md: "h-60 md:h-72 w-40 md:w-52 object-cover border-primary border-2",
+      lg: "h-64 md:h-80 w-52 md:w-64 object-cover",
     },
   },
   defaultVariants: {
