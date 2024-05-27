@@ -1,7 +1,6 @@
 package com.example.uniread.controllers;
 
 import com.example.uniread.entities.Book;
-import com.example.uniread.entities.Chapter;
 import com.example.uniread.services.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
